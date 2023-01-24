@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>01 vue</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Demo project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+		integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style type="text/css"></style>
+</head>
+
+<body>
+	<div id="app">
+		<h1>{{titulo}}</h1>
+		<label for="">Nome</label><br>
+		<input type="text" v-model="nome">
+
+		<br><br>
+		<label for="">Telefone</label><br>
+		<input type="text" v-model="telefone"><br>
+
+		<br><br>
+
+		<label for="">Deseja receber novidades</label><br>
+		<input type="radio" value="Sim" v-model="novidades">Sim<br>
+		<input type="radio" value="Não" v-model="novidades">Não<br>
+
+		<br><br>
+		<label for="">Interesses</label><br>
+		<input type="checkbox" value="Futebol" v-model="interesses"> Futebol <br>
+		<input type="checkbox" value="Formula 1" v-model="interesses"> Fórmula 1 <br>
+		<input type="checkbox" value="Corrida" v-model="interesses"> Corrida <br>
+
+		<br><br>
+		<label for="">Como nos conheceu ?</label>
+		<select v-model="conheceu">
+			<option value="">Escolha</option>
+			<option value="Google">Google</option>
+			<option value="TV">TV</option>
+			<option value="Revista">Revista</option>
+		</select>
+
+		<br><br>
+		<button>Enviar</button>
+
+		<hr>
+		Nome: {{nome}} <br>
+		Telefone: {{ telefone }} <br>
+		Interesses: {{ interesses }} <br>
+		Como nos conheceu: {{ conheceu }} <br>
+		novidades: {{ novidades }}
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				titulo: 'Hello Vue!',
+				nome: "",
+				telefone: "",
+				novidades: "",
+				interesses: [],
+				conheceu: "",
+			}
+		});
+	</script>
+</body>
+
+</html>

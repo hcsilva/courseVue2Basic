@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>01 vue</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Demo project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+		integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style type="text/css"></style>
+</head>
+
+<body>
+	<div id="app">
+		<h1>{{titulo}}</h1>
+		{{fullName}}
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				titulo: 'Hello Vue!',
+				firstname: '',
+				lastname: '',
+				// fullName: '',
+			},
+
+			computed: {
+				// A Computed vai ser alterada sempre que as dependências forem alteradas.
+				// Qualquer variável que for alterada, no data, a computed irá rodar
+				fullName() {
+					return this.firstname + ' ' + this.lastname;
+				}
+			},
+
+			watch: {
+				firstname(newValue) {
+					this.updateUser();
+				},
+
+				// firstname(newValue) {
+				// 	this.fullName = newValue + ' ' + this.lastname;
+				// },
+
+				// lastname(newValue) {
+				// 	this.fullName = this.firstname + ' ' + newValue;
+				// }
+			},
+
+			methods: {
+				updateUser() {
+					console.log("Usuário atualizado com sucesso")
+						;
+				},
+			}
+		});
+	</script>
+</body>
+
+</html>
